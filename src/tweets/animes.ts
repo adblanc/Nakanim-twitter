@@ -1,5 +1,5 @@
 import { Episode, Anime } from "@ablanc/nakanim-api";
-import { ACCOUNTS } from "./accounts";
+import { ACCOUNTS } from "../constants/accounts";
 import { getRefs } from "../utils/anime";
 
 export function dailyEpisodeTweet(episode: Episode): string {
@@ -16,23 +16,13 @@ export function randomAnimeTweet(anime: Anime) {
     anime.name
   }. Disponible sur ${getRefs(anime)}.
 Note : ${anime.rating}/5.
-Episodes : ${anime.episodes}.
-${anime.season ? `Saison${s} : ${anime.season}.` : ""}
+Episodes : ${anime.episodes}.${
+    anime.season ? `\nSaison${s} : ${anime.season}.` : ""
+  }
 Genres : ${anime.genres.map((g) => g.name).join(", ")}.`;
 
   const synopsis = `Synopsis:
 ${anime.synopsis}`;
-  const synoTruncated = truncateSynopsis(synopsis);
 
-  const tweet = [core, ...synoTruncated];
-  return tweet;
+  return core + "\n" + synopsis;
 }
-
-const truncateSynopsis = (synopsis: string) => {
-  const chunks = [];
-
-  for (let i = 0; i < synopsis.length; i += 280) {
-    chunks.push(synopsis.substring(i, i + 280));
-  }
-  return chunks;
-};

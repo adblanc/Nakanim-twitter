@@ -1112,6 +1112,14 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
+twit-thread@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/twit-thread/-/twit-thread-2.1.0.tgz#0e03a137d3cc6643d9b8a1e0d5b3078456f69d2b"
+  integrity sha512-5+gBofBUfpP0+gFQUdahjt85LLnEFSi2ibj8zbpLUXWzICOAPkEWBWVKyJgbyN/DbRxL5dlk1b/9olIRisKbEQ==
+  dependencies:
+    dotenv "^8.2.0"
+    twit "^2.2.11"
+
 twit@^2.2.11:
   version "2.2.11"
   resolved "https://registry.yarnpkg.com/twit/-/twit-2.2.11.tgz#554343d1cf343ddf503280db821f61be5ab407c3"

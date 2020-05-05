@@ -2,25 +2,21 @@ import stream from "stream";
 import { promisify } from "util";
 import got from "got";
 import fs from "fs";
+import { IMAGES_PATH } from "../constants";
 
 const pipeline = promisify(stream.pipeline);
-
-const basePath = "./static";
 
 const getImagePath = (obj: any): string => {
   const image = obj.img || obj.image2x || obj.image;
   const extension = image.split(".").pop();
-  return `${basePath}/${obj._id}.${extension}`;
+  return `${IMAGES_PATH}/${obj._id}.${extension}`;
 };
 
-export function createImage(obj: any): Promise<void> | undefined {
+export function createImage(obj: any): Promise<void> {
   const image = obj.img || obj.image2x || obj.image;
   const url = encodeURI(image);
-  try {
-    return pipeline(got.stream(url), fs.createWriteStream(getImagePath(obj)));
-  } catch (ex) {
-    console.error("Error while creating image : ", ex);
-  }
+
+  return pipeline(got.stream(url), fs.createWriteStream(getImagePath(obj)));
 }
 
 export function deleteImage(obj: any) {

@@ -1,1 +1,1 @@
-export const RANDOM_ANIME_CRONJOB = "0 10 * * *";
+export const RANDOM_ANIME_CRONJOB = "0 12 * * *";
