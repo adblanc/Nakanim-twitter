@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "@ablanc/nakanim-api": "^1.1.2",

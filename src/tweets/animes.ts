@@ -3,9 +3,11 @@ import { ACCOUNTS } from "../constants/accounts";
 import { getRefs } from "../utils/anime";
 
 export function dailyEpisodeTweet(episode: Episode): string {
-  return `L'épisode ${episode.number} de ${episode.title} sort aujoud'hui à ${
-    episode.hour
-  } sur ${episode.ref.map((ref) => (ACCOUNTS as any)[ref]).join(" et ")}.
+  return `L'épisode ${episode.number} de ${
+    episode.title
+  } vient de sortir sur ${episode.ref
+    .map((ref) => (ACCOUNTS as any)[ref])
+    .join(" et ")}.
 Lien : ${episode.link}`;
 }
 
