@@ -1,14 +1,31 @@
 import { Episode, Anime } from "@ablanc/nakanim-api";
 import { ACCOUNTS } from "../constants/accounts";
 import { getRefs } from "../utils/anime";
+import { DailyEpisode } from "../interfaces";
 
-export function dailyEpisodeTweet(episode: Episode): string {
-  return `L'épisode ${episode.number} de ${
-    episode.title
-  } vient de sortir sur ${episode.ref
+export function dailyEpisodeTweet({
+  number,
+  title,
+  ref,
+  link,
+}: Episode): string {
+  return `L'épisode ${number} de ${title} vient de sortir sur ${ref
     .map((ref) => (ACCOUNTS as any)[ref])
     .join(" et ")}.
-Lien : ${episode.link}`;
+Lien : ${link}`;
+}
+
+export function episodeRangeTweet({
+  number,
+  upperNumber,
+  title,
+  ref,
+  link,
+}: DailyEpisode): string {
+  return `Les épisodes ${number} à ${upperNumber} de ${title} viennent de sortir sur ${ref
+    .map((ref) => (ACCOUNTS as any)[ref])
+    .join(" et ")}.
+Lien : ${link}`;
 }
 
 export function randomAnimeTweet(anime: Anime) {
