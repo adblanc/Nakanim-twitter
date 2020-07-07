@@ -2,7 +2,7 @@ import Twit from "twit";
 import schedule from "node-schedule";
 import moment from "moment";
 import { TwitThread } from "twit-thread";
-import { getRandomAnime, Episode, getCalendar, Day } from "@ablanc/nakanim-api";
+import { getRandomAnime, Episode, Day, getCalendar } from "@ablanc/nakanim-api";
 import { createImage, readImage, deleteImage } from "../utils";
 import {
   randomAnimeTweet,
@@ -48,12 +48,14 @@ export default class Nakanim extends TwitThread {
 
   scheduleDailyEpisodesJob = async () => {
     const { days } = await getCalendar();
-    const day = days[moment().isoWeekday() - 2];
+
+    const day = days[moment().isoWeekday() - 1];
 
     const episodes = this.handleEpisodesRange(day.episodes);
 
     episodes.forEach((episode) => {
       const cronJob = this.getEpisodeCronJob(episode, day);
+      console.log(cronJob);
 
       schedule.scheduleJob(cronJob, () => {
         this.tweetEpisode(episode);

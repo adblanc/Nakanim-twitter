@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ablanc/nakanim-api@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@ablanc/nakanim-api/-/nakanim-api-1.1.2.tgz#c6ed28638412b035511e36ca49cb07228e4d5fc7"
-  integrity sha512-EdirdHZABc18Mdmm5jWyd+hdtYTJXe+sW3x/BOFV6xJgcB88AKHzHaJjQWfu/z+E4qGdr1F3sYwcwc91akEaaA==
+"@ablanc/nakanim-api@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ablanc/nakanim-api/-/nakanim-api-1.2.0.tgz#cc19c9cfe2132d8781c633b32a29c715f6980ca1"
+  integrity sha512-pIXFKtGuJQDkFabQIMuFNhI1MpPRlAi9U/2B5rs0Eo69fHqDIvIaw8esbVOi5tmBaEXCOOARJLSvm6dFRFMK0Q==
   dependencies:
     moment "^2.24.0"
     node-fetch "^2.6.0"
