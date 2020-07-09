@@ -18,7 +18,6 @@ export default class Nakanim extends TwitThread {
 
     this.scheduleRandomAnimeJob();
     this.scheduleDailyAnimeJob();
-    this.scheduleDailyEpisodesJob();
   }
 
   scheduleRandomAnimeJob = () => {
@@ -44,6 +43,7 @@ export default class Nakanim extends TwitThread {
 
   scheduleDailyAnimeJob = () => {
     schedule.scheduleJob(DAILY_EPISODES_CRONJOB, this.scheduleDailyEpisodesJob);
+    this.scheduleDailyEpisodesJob();
   };
 
   scheduleDailyEpisodesJob = async () => {
@@ -55,7 +55,7 @@ export default class Nakanim extends TwitThread {
 
     episodes.forEach((episode) => {
       const cronJob = this.getEpisodeCronJob(episode, day);
-      console.log(cronJob);
+      console.log(cronJob, episode.title);
 
       schedule.scheduleJob(cronJob, () => {
         this.tweetEpisode(episode);
