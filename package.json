@@ -1,10 +1,14 @@
 {
   "name": "new-twitter-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
+  "engines": {
+    "yarn": "1.x",
+    "node": "12.x"
+  },
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "yarn build && node dist/index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "tsc"
   },
