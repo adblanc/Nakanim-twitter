@@ -15,7 +15,7 @@
   "dependencies": {
     "@ablanc/nakanim-api": "^1.2.0",
     "dotenv": "^8.2.0",
-    "got": "^11.1.0",
+    "got": "^11.8.5",
     "moment": "^2.25.1",
     "node-schedule": "^1.3.2",
     "twit": "^2.2.11",
